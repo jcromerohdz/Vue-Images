@@ -1,4 +1,5 @@
 import qs from "qs";
+import axios from "axios";
 
 const CLIENT_ID = "09e8a686c21b100";
 const ROOT_URL = "https://api.imgur.com";
@@ -14,4 +15,11 @@ export default {
       querystring
     )}`;
   },
+  fetchImages(token) {
+    return axios.get(`${ROOT_URL}/3/account/me/images`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+   }) 
+  }
 };
